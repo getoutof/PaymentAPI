@@ -77,7 +77,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build container image
-        run: docker build -t $(echo $IMAGE_NAME):$(echo $GITHUB_SHA) .
+        with:
+          envs: IMAGE_NAME
+        run: docker build -t $(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7) .
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
