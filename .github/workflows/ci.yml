@@ -90,5 +90,5 @@ jobs:
             # Pull from git
             cd ~/PaymentAPI
             git pull
-            # Run a new container from a new image
+            # Build and run
             make up
