@@ -1,3 +1,7 @@
+ifdef ENV
+ENV := .$(ENV)
+endif
+
 # Executables (local)
 DOCKER_COMP = docker compose
 
@@ -22,7 +26,7 @@ build: ## Builds the Docker images
 	@$(DOCKER_COMP) build --pull --no-cache
 
 up: ## Start the docker hub in detached mode (no logs)
-	@$(DOCKER_COMP) up --detach
+	@$(DOCKER_COMP) --env-file .env${ENV} up --detach
 
 start: build up ## Build and start the containers
 

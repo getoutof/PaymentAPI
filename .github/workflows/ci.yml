@@ -91,4 +91,4 @@ jobs:
             cd ~/PaymentAPI
             git pull
             # Build and run
-            make up
+            ENV=prod make up
