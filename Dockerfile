@@ -34,7 +34,7 @@ RUN set -eux; \
 
 ###> recipes ###
 ###> doctrine/doctrine-bundle ###
-RUN apk add --no-cache --virtual .pgsql-deps postgresql-dev:latest; \
+RUN apk add --no-cache --virtual .pgsql-deps postgresql-dev=latest; \
 	docker-php-ext-install -j"$(nproc)" pdo_pgsql; \
 	apk add --no-cache --virtual .pgsql-rundeps so:libpq.so.5; \
 	apk del .pgsql-deps
